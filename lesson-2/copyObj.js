@@ -1,8 +1,9 @@
 module.exports = function makeObjectDeepCopy(obj) {
-	let result = {};
+	if (typeof obj !== 'object' || obj == null) return obj;
+	const result = Array.isArray(obj) ? [] : {};
 	for (let key in obj) {
-		if (typeof key == 'object' && obj[key] != null) makeObjectDeepCopy(key);
-		result[key] = obj[key];
+		const value = obj[key];
+		result[key] = makeObjectDeepCopy(value);
 	}
 	return result;
 };
