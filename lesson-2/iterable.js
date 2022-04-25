@@ -11,10 +11,11 @@ myIterable[Symbol.iterator] = function () {
 				typeof this.last != 'number'
 			)
 				throw new Error('Ошибка!');
-			else if (this.current != this.last) {
-				++this.current;
-				return { done: false, value: this.current };
+			else if (this.current <= this.last) {
+				return { done: false, value: this.current++ };
 			} else return { done: true };
 		},
 	};
 };
+
+for (let key of myIterable) console.log(key);
