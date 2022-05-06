@@ -7,9 +7,9 @@ class Calculator {
 		if (newX == undefined || typeof newX != 'number') throw new Error('Invalid first argument');
 		this.x = newX;
 	}
-	get setX() {
+	/* get setX() {
 		return this.x;
-	}
+	} */
 	set setY(newY) {
 		if (newY == undefined || typeof newY != 'number')
 			throw new Error('Invalid second argument');
